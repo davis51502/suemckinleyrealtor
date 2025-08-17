@@ -15,10 +15,10 @@ const Header = () => (
           <div>SueMcKinleyRealtor@gmail.com</div>
         </div>
         <img
-          src="https://placehold.co/64x64/E2D0B8/333?text=Sue"
+          src="/Sue2015-e1431579249438.jpg"
           alt="Sue McKinley"
           className="contact-photo"
-          onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/64x64/E2D0B8/333?text=Sue'; }}
+          onError={(e) => { e.target.onerror = null; e.target.src='/placeholder-square.png'; }}
         />
       </div>
     </div>
