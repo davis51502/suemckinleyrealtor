@@ -6,7 +6,7 @@ import AboutSue from './pages/AboutSue/AboutSue';
 import FeaturedProperties from './pages/FeaturedProperties/FeaturedProperties';
 import BuyersSellerResources from './pages/BuyersSellerResources/BuyersSellerResources';
 import Testimonials from './pages/Testimonials/Testimonials';
-import Blog from './pages/Blog/Blog';
+
 import Contact from './pages/Contact/Contact';
 import './App.css';
 
@@ -25,8 +25,6 @@ const App = () => {
         return <BuyersSellerResources />;
       case 'Testimonials':
         return <Testimonials />;
-      case 'Blog':
-        return <Blog />;
       case 'Contact':
         return <Contact />;
       default:

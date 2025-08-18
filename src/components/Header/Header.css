@@ -1,0 +1,65 @@
+/* --- Main Header Layout --- */
+.app-header {
+  /* Dark green background from the image */
+  background-color: #2e4d27; 
+  padding: 15px 0;
+  font-family: 'Georgia', serif; /* A serif font is the new default */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Logo Styling --- */
+.logo-section {
+  display: flex;
+  align-items: baseline; /* Aligns "Sue" and "MCKINLEY" along their bottom edge */
+  gap: 15px;
+}
+
+.logo-script {
+  font-family: 'Brush Script MT', 'cursive'; /* Elegant script font */
+  font-size: 3.5rem;
+  color: #ffffff; /* Pure white */
+  font-weight: normal;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Subtle drop shadow */
+  line-height: 1;
+}
+
+.logo-main {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #d2c8b0; /* Beige/off-white color from the image */
+  text-transform: uppercase;
+  letter-spacing: 0.3em; /* Adds the wide spacing between letters */
+}
+
+/* --- Contact Section & Photo Styling --- */
+.contact-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-details {
+  text-align: right;
+  font-family: Arial, sans-serif; /* A simple, readable sans-serif font */
+  font-size: 0.9rem;
+  font-weight: normal; /* Changed from bold to normal */
+  color: #d2c8b0; /* Beige/off-white color */
+  line-height: 1.6;
+}
+
+.contact-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 0; /* Changed from circle to square */
+  border: 4px solid #d2c8b0; /* Beige border */
+  object-fit: cover;
+  object-position: center;
+}

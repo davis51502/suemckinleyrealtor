@@ -1,0 +1,31 @@
+/* Contact.css */
+
+/* This targets the main content card for the contact page */
+.page-content .contact-details {
+  text-align: center; /* Centers all the text inside this div */
+  margin-top: 1.5rem; /* Adds some space below the main h1 title */
+  padding: 1rem 0;
+  border-top: 1px solid #eee; /* Adds a subtle separator line */
+}
+
+/* Styles for the paragraphs containing contact info */
+.page-content .contact-details p {
+  margin: 0.5rem 0; /* Adds a little vertical space between each line */
+  font-size: 1.1rem; /* Makes the text slightly larger and easier to read */
+  line-height: 1.6; /* Improves readability */
+  color: #555; /* A soft, dark gray for the text */
+}
+
+/* Specifically targets the phone number link */
+.page-content .contact-details a {
+  color: #3498db; /* A clear blue to indicate it's a clickable link */
+  text-decoration: none; /* Removes the default underline */
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+/* Adds an underline when a user hovers over the link */
+.page-content .contact-details a:hover {
+  color: #2980b9; /* Darkens the blue on hover */
+  text-decoration: underline;
+}
