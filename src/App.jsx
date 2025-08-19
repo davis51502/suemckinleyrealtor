@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
-import Home from './pages/home/Home';
+import Home from './pages/Home/Home';
 import AboutSue from './pages/AboutSue/AboutSue';
 import FeaturedProperties from './pages/FeaturedProperties/FeaturedProperties';
 import BuyersSellerResources from './pages/BuyersSellerResources/BuyersSellerResources';
