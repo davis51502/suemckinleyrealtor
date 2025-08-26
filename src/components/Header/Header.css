@@ -1,17 +1,26 @@
-/* --- New Header CSS --- */
+/* --- Updated Header CSS --- */
 
 /* This targets the <header> element that contains your image */
 .app-header {
-  /* Removes any default padding so the image can touch the edges */
-  padding: 0;
-  /* Optional: you can set a max-height for very large screens */
-  /* max-height: 300px; */ 
-  overflow: hidden; /* Ensures the image fits cleanly */
+  padding: 0; /* Important: Removes any default padding */
+  margin: 0;  /* Important: Removes any default margin */
+  width: 100vw; /* Important: Makes the header span the full viewport width */
+  overflow: hidden; /* Ensures no scrollbars appear if content slightly overflows */
+  /* You might also want to set height: auto; if you want the header itself to adjust to the image height */
+  height: auto; 
 }
 
 /* This styles your new banner image */
 .header-banner-image {
   display: block; /* Removes any extra space below the image */
-  width: 100%;    /* Makes the image span the full width of the screen */
+  width: 100%;    /* Makes the image span the full width of the .app-header */
   height: auto;   /* Maintains the correct aspect ratio as it scales */
+  object-fit: cover; /* Ensures the image covers the area, potentially cropping edges */
+  object-position: center; /* Centers the image content */
+}
+
+/* Optional: If there's a body or html margin/padding, remove it */
+body, html {
+  margin: 0;
+  padding: 0;
 }

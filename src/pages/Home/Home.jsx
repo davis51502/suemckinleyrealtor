@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './Home.css';
 
-
-
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    '/1.jpg',
+    '/House1608.jpg',
     '/2.jpg',
     '/3.jpg',
     '/4.jpg',

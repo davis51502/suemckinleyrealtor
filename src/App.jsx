@@ -6,7 +6,6 @@ import AboutSue from './pages/AboutSue/AboutSue';
 import FeaturedProperties from './pages/FeaturedProperties/FeaturedProperties';
 import BuyersSellerResources from './pages/BuyersSellerResources/BuyersSellerResources';
 import Testimonials from './pages/Testimonials/Testimonials';
-
 import Contact from './pages/Contact/Contact';
 import './App.css';
 
@@ -33,19 +32,22 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <Header />
-      <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-      <main>
-        {renderPage()}
-      </main>
-      <footer className="app-footer">
-        <div className="content-container">
-          <p>© 2025 Sue McKinley Realtor®. All rights reserved.</p>
-          <p>Licensed California Real Estate Professional</p>
-        </div>
-      </footer>
-    </div>
+
+      <div className="content-container">
+        <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+        <main>
+          {renderPage()}
+        </main>
+        <footer className="app-footer">
+          <div>
+            <p>© 2025 Sue McKinley Realtor®. All rights reserved.</p>
+            <p>Licensed California Real Estate Professional</p>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
 
