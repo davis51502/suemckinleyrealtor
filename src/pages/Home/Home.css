@@ -1,20 +1,27 @@
+/* Updated responsive Home.css */
+
 .home-page {
     width: 100%;
     max-width: 1408px;
-
+    margin: 0 auto; /* Center the rest of the page */
 }
 
+/* === HERO SECTION FULL WIDTH === */
 .hero-section {
     position: relative;
-    width: 100%;
+    width: 100vw;      /* take entire viewport width */
     height: 400px;
     overflow: hidden;
+
+    /* break out of parent .home-page max-width */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 .carousel-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* keep image proportional */
 }
 
 .carousel-arrow {
@@ -28,6 +35,8 @@
     cursor: pointer;
     z-index: 2;
     transition: background-color 0.3s ease;
+    min-width: 44px; /* Touch target size */
+    min-height: 44px;
 }
 
 .carousel-arrow.left {
@@ -42,6 +51,7 @@
     background: rgba(255, 255, 255, 0.9);
 }
 
+/* === WELCOME SECTION === */
 .welcome-section {
     padding: 40px 20px;
     text-align: center;
@@ -70,66 +80,220 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    min-height: 44px; /* Touch target size */
 }
 
 .cta-button:hover {
     background-color: #d4c0a6;
 }
+
+/* === TESTIMONIAL SECTION === */
 .testimonial-section {
-  width: 1390px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 2rem;
-  background: linear-gradient(to bottom, #ffffff, #d6c3a0);
-  gap: 3rem;
+    width: 100%;
+    max-width: 1390px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(to bottom, #ffffff, #d6c3a0);
+    gap: 3rem;
 }
 
 .testimonial-video {
-  flex: 1;
-  text-align: center;
+    flex: 1;
+    text-align: center;
 }
 
 .video-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .video-heading {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  text-shadow: 1px 1px #fff;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 1px 1px #fff;
 }
 
 .testimonial-quote {
-  flex: 1.5;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
-  position: relative;
+    flex: 1.5;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    position: relative;
 }
 
 .quote-icon {
-  font-size: 3rem;
-  color: #999;
-  font-weight: bold;
-  position: absolute;
-  top: -20px;
-  left: -20px;
+    font-size: 3rem;
+    color: #999;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    left: -20px;
 }
 
 .quote-icon.closing {
-  right: -20px;
-  bottom: -10px;
-  top: auto;
-  left: auto;
+    right: -20px;
+    bottom: -10px;
+    top: auto;
+    left: auto;
 }
 
 .client-name {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #444;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #444;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+    .testimonial-section {
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+    /* Hero section adjustments */
+    .hero-section {
+        height: 300px;
+    }
+    
+    .carousel-arrow {
+        padding: 8px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    
+    .carousel-arrow.left {
+        left: 10px;
+    }
+    
+    .carousel-arrow.right {
+        right: 10px;
+    }
+    
+    /* Welcome section mobile */
+    .welcome-section {
+        padding: 2rem 1rem;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+    
+    .welcome-section p {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    /* Testimonial section - stack vertically on mobile */
+    .testimonial-section {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+    
+    .testimonial-video,
+    .testimonial-quote {
+        flex: none;
+        width: 100%;
+    }
+    
+    .video-heading {
+        font-size: 1.3rem;
+    }
+    
+    .testimonial-quote {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .quote-icon {
+        font-size: 2.5rem;
+        top: -15px;
+        left: -10px;
+    }
+    
+    .quote-icon.closing {
+        right: -10px;
+        bottom: -5px;
+    }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+    /* Hero section for small screens */
+    .hero-section {
+        height: 250px;
+    }
+    
+    .carousel-arrow {
+        padding: 6px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+    
+    .carousel-arrow.left {
+        left: 5px;
+    }
+    
+    .carousel-arrow.right {
+        right: 5px;
+    }
+    
+    /* Welcome section for small screens */
+    .welcome-section {
+        padding: 1.5rem 0.5rem;
+    }
+    
+    .welcome-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-section p {
+        font-size: 0.95rem;
+    }
+    
+    /* Testimonial section for small screens */
+    .testimonial-section {
+        padding: 1.5rem 0.5rem;
+        gap: 1.5rem;
+    }
+    
+    .video-heading {
+        font-size: 1.2rem;
+    }
+    
+    .testimonial-quote {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+    }
+    
+    .quote-icon {
+        font-size: 2rem;
+        top: -10px;
+        left: -5px;
+    }
+    
+    .quote-icon.closing {
+        right: -5px;
+        bottom: -5px;
+    }
 }

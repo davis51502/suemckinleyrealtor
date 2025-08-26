@@ -237,3 +237,25 @@ main {
 .app-footer p {
   margin: 0.3rem 0;
 }
+/* App container responsive */
+@media (max-width: 768px) {
+  /* Footer */
+  .app-footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .content-container {
+    padding: 0 1rem;
+  }
+}
+
+/* Global mobile-friendly improvements */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}

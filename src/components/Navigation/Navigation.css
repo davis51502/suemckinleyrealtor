@@ -1,0 +1,19 @@
+/* Navigation responsive styles */
+@media (max-width: 768px) {
+  .app-nav {
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* ... rest of navigation styles from the artifact */
+}

@@ -1,3 +1,5 @@
+/* Updated responsive About Sue CSS */
+
 .about-container {
   width: 100%;
   max-width: 1200px;
@@ -20,6 +22,7 @@
   height: auto;
   border-radius: 8px;
   margin-right: 2rem;
+  flex-shrink: 0; /* Prevent image from shrinking too much */
 }
 
 .about-header h1 {
@@ -91,4 +94,163 @@
 
 .about-video ul li {
   margin-bottom: 0.5rem;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .about-container {
+    padding: 1.5rem;
+  }
+  
+  .about-photo {
+    width: 220px;
+    margin-right: 1.5rem;
+  }
+  
+  .about-header h1 {
+    font-size: 2rem;
+  }
+  
+  .about-bottom {
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  
+  .about-container {
+    padding: 1rem;
+  }
+  
+  /* Stack top section vertically on mobile */
+  .about-top {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .about-photo {
+    width: 200px;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .about-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .about-header p {
+    font-size: 0.95rem;
+  }
+  
+  /* Stack bottom section vertically on mobile */
+  .about-bottom {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .about-description,
+  .about-video {
+    flex: none;
+    width: 100%;
+  }
+  
+  .about-description p {
+    text-align: left; /* Better readability on mobile than justify */
+    font-size: 0.95rem;
+  }
+  
+  .about-video h3 {
+    font-size: 1.1rem;
+  }
+  
+  .about-video h4 {
+    font-size: 1rem;
+  }
+  
+  .about-video ul li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+  
+  .about-container {
+    padding: 0.75rem;
+  }
+  
+  .about-top {
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-photo {
+    width: 180px;
+    margin-bottom: 1rem;
+  }
+  
+  .about-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .about-header h2 {
+    font-size: 1rem;
+  }
+  
+  .about-header p {
+    font-size: 0.9rem;
+  }
+  
+  .about-bottom {
+    gap: 1rem;
+  }
+  
+  .about-description p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-video h3 {
+    font-size: 1rem;
+  }
+  
+  .about-video h4 {
+    font-size: 0.95rem;
+  }
+  
+  .about-video ul li {
+    font-size: 0.9rem;
+  }
+  
+  /* Reduce video wrapper margin on very small screens */
+  .video-wrapper {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  
+  .about-container {
+    padding: 0.5rem;
+  }
+  
+  .about-photo {
+    width: 150px;
+  }
+  
+  .about-header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .about-header h2 {
+    font-size: 0.95rem;
+  }
 }

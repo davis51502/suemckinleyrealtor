@@ -1,0 +1,72 @@
+/* Keep your existing .content-container, .page-content, h1, and p styles */
+
+/* New styles for the Swiper carousel and testimonials */
+.mySwiper {
+  width: 100%;
+  padding: 2rem 0 4rem 0; /* Add padding for navigation/pagination */
+}
+
+.testimonial-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem; /* Side padding for content */
+}
+
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid #fff;
+}
+
+.testimonial-slide blockquote {
+  margin: 0;
+  max-width: 700px; /* Constrain quote width for readability */
+}
+
+.testimonial-quote {
+  font-family: 'Georgia', serif;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #444;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-slide footer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  color: #0056b3; /* A nice brand color */
+  font-size: 1.1rem;
+}
+
+/* --- Style Swiper Navigation Arrows & Pagination Dots --- */
+
+/* Arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #007bff; /* Your brand color */
+  transform: scale(0.8);
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-weight: 900 !important;
+}
+
+/* Pagination Dots */
+.swiper-pagination-bullet {
+  background: #cccccc;
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+  background: #007bff; /* Your brand color */
+}
