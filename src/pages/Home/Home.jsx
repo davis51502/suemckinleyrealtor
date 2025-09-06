@@ -91,14 +91,12 @@ const Home = () => {
               navigate your real estate journey. Whether you're buying or selling, I provide personalized service and expert guidance
               every step of the way.
             </p>
-            <button className="cta-button">
+            {/* <button className="cta-button">
               Get Started Today
-            </button>
+            </button> */}
           </div>
         </div>
-      </div>
-
-  
+      </div>  
     </div>
   );
 };
