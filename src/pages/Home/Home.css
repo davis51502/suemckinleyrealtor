@@ -2,7 +2,8 @@
 .home-hero {
   position: relative;
   width: 100%;
-  height: clamp(280px, 52vw, 560px);
+  /* Capped at the photos' native 384px height so the browser only ever shrinks them (enlarging = blur) */
+  height: clamp(220px, 24vw, 384px);
   overflow: hidden;
   background: var(--green-900);
 }

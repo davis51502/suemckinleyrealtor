@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, Award, MapPin, Truck } from 'lucide-react';
 import './Home.css';
 
+// Slides 2-6 are 1920x384 panoramas (cropped to remove text baked into the old banners).
+// The hero height in Home.css is capped at 384px so these are never scaled up.
 const images = [
-  '/House1608.jpg',
-  '/2.jpg',
-  '/3.jpg',
-  '/4.jpg',
-  '/5.jpg',
-  '/6.jpg'
+  '/hero/slide-1.jpg',
+  '/hero/slide-2.jpg',
+  '/hero/slide-3.jpg',
+  '/hero/slide-4.jpg',
+  '/hero/slide-5.jpg',
+  '/hero/slide-6.jpg'
 ];
 
 const highlights = [
