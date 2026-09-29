@@ -2,11 +2,16 @@ import React from 'react';
 import './BuyersSellerResources.css';
 
 const UsefulLinks = () => (
-  <div className="content-container">
-    <div className="page-content">
-      <h1>Here are some useful links</h1>
+  <div className="page container">
+    <div className="page-intro">
+      <span className="eyebrow">Buyer &amp; Seller Resources</span>
+      <h1 className="page-title">Here are some useful links</h1>
+      <p className="page-lead">Trusted sites for credit, lending, legal, moving and more to help you plan every step.</p>
+    </div>
 
-      <section>
+    <div className="resources-grid">
+
+      <section className="resource-card card">
         <h2>Consumer Education</h2>
         <ul>
           <li><a href="https://www.consumerfinance.gov/complaint/" target="_blank" rel="noopener noreferrer">Consumer Financial Protection Bureau website</a></li>
@@ -15,7 +20,7 @@ const UsefulLinks = () => (
         </ul>
       </section>
 
-      <section>
+      <section className="resource-card card">
         <h2>Credit Information</h2>
         <ul>
           <li><a href="https://www.acainternational.org/" target="_blank" rel="noopener noreferrer">American Credit Collections</a></li>
@@ -27,7 +32,7 @@ const UsefulLinks = () => (
         </ul>
       </section>
 
-      <section>
+      <section className="resource-card card">
         <h2>Legal Resources</h2>
         <ul>
           <li><a href="https://www.attorneys.org/" target="_blank" rel="noopener noreferrer">Attorney Directory</a></li>
@@ -39,7 +44,7 @@ const UsefulLinks = () => (
         </ul>
       </section>
 
-      <section>
+      <section className="resource-card card">
         <h2>Money Management</h2>
         <ul>
           <li><a href="https://www.hoovers.com/" target="_blank" rel="noopener noreferrer">Hoover’s</a></li>
@@ -50,7 +55,7 @@ const UsefulLinks = () => (
         </ul>
       </section>
 
-      <section>
+      <section className="resource-card card">
         <h2>Mortgage and Loan Info</h2>
         <ul>
           <li><a href="https://www.mgic.com/" target="_blank" rel="noopener noreferrer">Multi-lingual Mortgage Guide</a></li>
@@ -60,14 +65,14 @@ const UsefulLinks = () => (
         </ul>
       </section>
 
-      <section>
+      <section className="resource-card card">
         <h2>Moving Resources</h2>
         <ul>
           <li><a href="https://perfectdomain.com/domain/clickandmove.com/" target="_blank" rel="noopener noreferrer">Click and Move</a></li>
         </ul>
       </section>
 
-      <section>
+      <section className="resource-card card">
         <h2>Title Insurance</h2>
         <ul>
           <li><a href="https://www.alta.org/" target="_blank" rel="noopener noreferrer">American Land Title</a></li>
@@ -76,7 +81,7 @@ const UsefulLinks = () => (
         </ul>
       </section>
 
-      <section>
+      <section className="resource-card card">
         <h2>Schools and Education</h2>
         <ul>
           <li><a href="https://www.greatschools.org/" target="_blank" rel="noopener noreferrer">Great Schools</a></li>
@@ -85,7 +90,7 @@ const UsefulLinks = () => (
         </ul>
       </section>
 
-      <section>
+      <section className="resource-card card">
         <h2>Tax Info and Resources</h2>
         <ul>
           <li><a href="https://www.irs.gov/" target="_blank" rel="noopener noreferrer">Taxpayer Relief Act</a></li>

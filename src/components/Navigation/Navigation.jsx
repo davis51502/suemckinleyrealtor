@@ -1,23 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Menu, X, Phone } from 'lucide-react';
 import './Navigation.css';
 
-const Navigation = ({ activeTab, setActiveTab }) => (
-  <nav className="app-nav">
-    <div className="content-container nav-content">
-      <div className="nav-links">
-        {['Home', 'About Sue', 'Featured Properties', 'Buyers Seller Resources', 'Testimonials', 'Contact'].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`nav-button ${activeTab === tab ? 'active' : ''}`}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
+const TABS = ['Home', 'About Sue', 'Featured Properties', 'Buyers Seller Resources', 'Testimonials', 'Contact'];
 
-    </div>
-  </nav>
-);
+const Navigation = ({ activeTab, setActiveTab }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleSelect = (tab) => {
+    setActiveTab(tab);
+    setMenuOpen(false);
+  };
+
+  return (
+    <nav className="app-nav" aria-label="Main navigation">
+      <div className="container nav-content">
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="nav-links"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          <span>Menu</span>
+        </button>
+
+        <div id="nav-links" className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          {TABS.map((tab) => (
+            <button
+              key={tab}
+              type="button"
+              onClick={() => handleSelect(tab)}
+              className={`nav-button ${activeTab === tab ? 'active' : ''}`}
+              aria-current={activeTab === tab ? 'page' : undefined}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        <a className="nav-phone" href="tel:925-413-2866">
+          <Phone size={16} />
+          <span>925.413.2866</span>
+        </a>
+      </div>
+    </nav>
+  );
+};
 
 export default Navigation;

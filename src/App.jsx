@@ -12,10 +12,16 @@ import './App.css';
 const App = () => {
   const [activeTab, setActiveTab] = useState('Home');
 
+  // Switching tabs replaces the page content, so jump back to the top like a real page load.
+  const navigate = (tab) => {
+    setActiveTab(tab);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const renderPage = () => {
     switch (activeTab) {
       case 'Home':
-        return <Home />;
+        return <Home onNavigate={navigate} />;
       case 'About Sue':
         return <AboutSue />;
       case 'Featured Properties':
@@ -27,26 +33,36 @@ const App = () => {
       case 'Contact':
         return <Contact />;
       default:
-        return <Home />;
+        return <Home onNavigate={navigate} />;
     }
   };
 
   return (
     <>
       <Header />
+      <Navigation activeTab={activeTab} setActiveTab={navigate} />
 
-      <div className="content-container">
-        <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-        <main>
-          {renderPage()}
-        </main>
-        <footer className="app-footer">
+      <main className="app-main">
+        {renderPage()}
+      </main>
+
+      <footer className="app-footer">
+        <div className="container footer-grid">
           <div>
-            <p>© 2025 Sue McKinley Realtor®. All rights reserved.</p>
-            <p>Licensed California Real Estate Professional</p>
+            <p className="footer-name">Sue McKinley, REALTOR®</p>
+            <p>Allison James Estates &amp; Homes</p>
+            <p>CA DRE# 00871712</p>
           </div>
-        </footer>
-      </div>
+          <div className="footer-contact">
+            <a href="tel:925-413-2866">925.413.2866</a>
+            <p>Serving the Tri-Valley &amp; greater Bay Area since 1984</p>
+          </div>
+        </div>
+        <div className="container footer-bottom">
+          <p>© {new Date().getFullYear()} Sue McKinley Realtor®. All rights reserved.</p>
+          <p>Licensed California Real Estate Professional</p>
+        </div>
+      </footer>
     </>
   );
 };

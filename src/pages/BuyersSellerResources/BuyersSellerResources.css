@@ -1,63 +1,54 @@
-/* BuyersSellerResources.css (Page-Specific) */
-
-/* These styles will ONLY apply to elements inside an element 
-  with the class "page-content".
-*/
-
-.page-content {
-  max-width: 900px; /* Limits the width for better readability */
-  margin: 2rem auto; /* Centers the content and adds space on top/bottom */
-  background-color: #ffffff; /* White background for the content area */
-  padding: 2rem 3rem; /* Adds some internal spacing */
-  border-radius: 8px; /* Rounds the corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow for depth */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+/* CSS columns let cards of different heights pack neatly like a masonry layout */
+.resources-grid {
+  columns: 3 280px;
+  column-gap: 1.5rem;
 }
 
-/* --- Scoped Typography and Headings --- */
-
-.page-content h1 {
-  text-align: center;
-  color: #2c3e50; /* A dark, professional blue-gray */
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-}
-
-.page-content h2 {
-  color: #34495e; /* A slightly lighter shade for section titles */
-  border-bottom: 2px solid #e0e0e0; /* A subtle underline for separation */
-  padding-bottom: 10px;
-  margin-top: 2.5rem; /* Adds space above each new section */
+.resource-card {
+  break-inside: avoid;
+  padding: 1.5rem 1.5rem 1.25rem;
   margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  border-top: 3px solid var(--gold);
 }
 
-/* --- Scoped Link and List Styling --- */
-
-.page-content ul {
-  list-style-type: none; /* Removes the default bullet points */
-  padding-left: 0; /* Removes default browser padding */
+.resource-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
-.page-content li {
-  margin-bottom: 12px; /* Adds space between each link */
-  font-size: 1rem;
+.resource-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.page-content a {
-  color: #3498db; /* A bright, clear blue for links */
-  text-decoration: none; /* Removes the underline by default */
-  transition: color 0.2s ease-in-out; /* Smooth color transition on hover */
+.resource-card li {
+  padding: 0.5rem 0;
+  font-size: 0.975rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
 }
 
-.page-content a:hover,
-.page-content a:focus {
-  color: #2980b9; /* A darker blue on hover for feedback */
-  text-decoration: underline; /* Adds an underline on hover */
+.resource-card li:last-child {
+  border-bottom: 0;
 }
 
-/* --- Scoped Section Spacing --- */
+.resource-card a {
+  color: var(--green-800);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 
-.page-content section {
-  margin-bottom: 2rem; /* Ensures consistent spacing between sections */
+.resource-card a::after {
+  content: ' ↗';
+  font-size: 0.8em;
+  color: var(--gold);
+}
+
+.resource-card a:hover,
+.resource-card a:focus {
+  color: var(--green-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

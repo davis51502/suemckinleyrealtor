@@ -1,9 +1,13 @@
-/* Keep your existing .content-container, .page-content, h1, and p styles */
+.testimonials-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(0.5rem, 3vw, 2rem);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--sand-light) 100%);
+}
 
-/* New styles for the Swiper carousel and testimonials */
 .mySwiper {
   width: 100%;
-  padding: 2rem 0 4rem 0; /* Add padding for navigation/pagination */
+  padding-bottom: 3rem !important; /* room for the pagination dots */
 }
 
 .testimonial-slide {
@@ -11,62 +15,89 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 2rem; /* Side padding for content */
+  margin: 0;
+  padding: 0 clamp(1rem, 7vw, 4.5rem);
+}
+
+.testimonial-quote-mark {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  line-height: 0.6;
+  height: 2.5rem;
+  color: var(--gold);
+}
+
+.testimonial-text {
+  margin: 0 0 1.75rem;
+  max-width: 680px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  color: var(--green-800);
+  text-align: left;
 }
 
 .testimonial-avatar {
-  width: 80px;
-  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 3px solid #fff;
+  background: var(--green-800);
+  color: var(--sand);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--gold);
 }
 
-.testimonial-slide blockquote {
-  margin: 0;
-  max-width: 700px; /* Constrain quote width for readability */
+/* --- Swiper arrows & dots in brand colors --- */
+.testimonials-card .swiper-button-next,
+.testimonials-card .swiper-button-prev {
+  top: 3rem;
+  width: 44px;
+  height: 44px;
+  margin-top: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  color: var(--green-800);
 }
 
-.testimonial-quote {
-  font-family: 'Georgia', serif;
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: #444;
-  font-style: italic;
-  margin-bottom: 1.5rem;
+.testimonials-card .swiper-button-next::after,
+.testimonials-card .swiper-button-prev::after {
+  font-size: 1rem;
+  font-weight: 900;
 }
 
-.testimonial-slide footer {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  color: #0056b3; /* A nice brand color */
-  font-size: 1.1rem;
+.testimonials-card .swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+  background: var(--green-800);
+  opacity: 0.25;
+  transition: width 0.3s ease, opacity 0.3s ease;
 }
 
-/* --- Style Swiper Navigation Arrows & Pagination Dots --- */
-
-/* Arrows */
-.swiper-button-next,
-.swiper-button-prev {
-  color: #007bff; /* Your brand color */
-  transform: scale(0.8);
-}
-.swiper-button-next:after,
-.swiper-button-prev:after {
-    font-weight: 900 !important;
+.testimonials-card .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 999px;
+  opacity: 1;
 }
 
-/* Pagination Dots */
-.swiper-pagination-bullet {
-  background: #cccccc;
-  width: 10px;
-  height: 10px;
-  opacity: 0.8;
-}
-
-.swiper-pagination-bullet-active {
-  background: #007bff; /* Your brand color */
+/* On phones the arrows would squeeze the quote, so rely on swipe + dots */
+@media (max-width: 600px) {
+  .testimonials-card .swiper-button-next,
+  .testimonials-card .swiper-button-prev {
+    display: none;
+  }
 }

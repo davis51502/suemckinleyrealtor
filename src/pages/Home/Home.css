@@ -1,299 +1,260 @@
-/* Updated responsive Home.css */
-
-.home-page {
-    width: 100%;
-    max-width: 1408px;
-    margin: 0 auto; /* Center the rest of the page */
+/* === HERO === */
+.home-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 52vw, 560px);
+  overflow: hidden;
+  background: var(--green-900);
 }
 
-/* === HERO SECTION FULL WIDTH === */
-.hero-section {
-    position: relative;
-    width: 100vw;      /* take entire viewport width */
-    height: 400px;
-    overflow: hidden;
-
-    /* break out of parent .home-page max-width */
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
+/* All slides are stacked; only the visible one is opaque, which gives a crossfade */
+.home-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease;
 }
 
-.carousel-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* keep image proportional */
+.home-hero-image.visible {
+  opacity: 1;
 }
 
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7);
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 2;
-    transition: background-color 0.3s ease;
-    min-width: 44px; /* Touch target size */
-    min-height: 44px;
+.home-hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent);
+  pointer-events: none;
 }
 
-.carousel-arrow.left {
-    left: 20px;
+.home-hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--green-900);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.carousel-arrow.right {
-    right: 20px;
+.home-hero-arrow:hover {
+  background: #fff;
 }
 
-.carousel-arrow:hover {
-    background: rgba(255, 255, 255, 0.9);
+.home-hero-arrow.left {
+  left: var(--gutter);
 }
 
-/* === WELCOME SECTION === */
-.welcome-section {
-    padding: 40px 20px;
-    text-align: center;
+.home-hero-arrow.right {
+  right: var(--gutter);
 }
 
-.welcome-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+.home-hero-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 0.5rem;
 }
 
-.welcome-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto 30px;
+.home-hero-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-.cta-button {
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    background-color: #E2D0B8;
-    color: #333;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    min-height: 44px; /* Touch target size */
+.home-hero-dot.active {
+  width: 28px;
+  background: #fff;
 }
 
-.cta-button:hover {
-    background-color: #d4c0a6;
+/* === WELCOME === */
+.home-welcome {
+  text-align: center;
+  max-width: 820px;
+  padding-top: var(--section-y);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
 }
 
-/* === TESTIMONIAL SECTION === */
-.testimonial-section {
-    width: 100%;
-    max-width: 1390px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 2rem;
-    background: linear-gradient(to bottom, #ffffff, #d6c3a0);
-    gap: 3rem;
+.home-cta-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
 }
 
-.testimonial-video {
-    flex: 1;
-    text-align: center;
+/* === HIGHLIGHTS === */
+.home-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding-bottom: var(--section-y);
 }
 
-.video-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.home-highlight {
+  padding: 1.75rem;
+  text-align: center;
 }
 
-.video-heading {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    text-shadow: 1px 1px #fff;
+.home-highlight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: var(--green-50);
+  color: var(--green-800);
 }
 
-.testimonial-quote {
-    flex: 1.5;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-    position: relative;
+.home-highlight h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.quote-icon {
-    font-size: 3rem;
-    color: #999;
-    font-weight: bold;
-    position: absolute;
-    top: -20px;
-    left: -20px;
+.home-highlight p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.975rem;
 }
 
-.quote-icon.closing {
-    right: -20px;
-    bottom: -10px;
-    top: auto;
-    left: auto;
+/* === TESTIMONIAL === */
+.home-testimonial {
+  background: linear-gradient(180deg, var(--sand-light) 0%, var(--sand) 100%);
+  padding: var(--section-y) 0;
 }
 
-.client-name {
-    margin-top: 1rem;
-    font-weight: bold;
-    color: #444;
+.home-testimonial-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
 }
 
-/* === RESPONSIVE BREAKPOINTS === */
-
-/* Tablet breakpoint */
-@media (max-width: 1024px) {
-    .testimonial-section {
-        gap: 2rem;
-        padding: 2rem 1.5rem;
-    }
-    
-    .welcome-section h1 {
-        font-size: 2.2rem;
-    }
+.home-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--green-900);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Mobile breakpoint */
-@media (max-width: 768px) {
-    /* Hero section adjustments */
-    .hero-section {
-        height: 300px;
-    }
-    
-    .carousel-arrow {
-        padding: 8px;
-        min-width: 40px;
-        min-height: 40px;
-    }
-    
-    .carousel-arrow.left {
-        left: 10px;
-    }
-    
-    .carousel-arrow.right {
-        right: 10px;
-    }
-    
-    /* Welcome section mobile */
-    .welcome-section {
-        padding: 2rem 1rem;
-    }
-    
-    .welcome-section h1 {
-        font-size: 2rem;
-    }
-    
-    .welcome-section p {
-        font-size: 1rem;
-    }
-    
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-    
-    /* Testimonial section - stack vertically on mobile */
-    .testimonial-section {
-        flex-direction: column;
-        gap: 2rem;
-        padding: 2rem 1rem;
-        text-align: center;
-    }
-    
-    .testimonial-video,
-    .testimonial-quote {
-        flex: none;
-        width: 100%;
-    }
-    
-    .video-heading {
-        font-size: 1.3rem;
-    }
-    
-    .testimonial-quote {
-        font-size: 1rem;
-        padding: 0 1rem;
-    }
-    
-    .quote-icon {
-        font-size: 2.5rem;
-        top: -15px;
-        left: -10px;
-    }
-    
-    .quote-icon.closing {
-        right: -10px;
-        bottom: -5px;
-    }
+.home-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-/* Small mobile breakpoint */
-@media (max-width: 480px) {
-    /* Hero section for small screens */
-    .hero-section {
-        height: 250px;
-    }
-    
-    .carousel-arrow {
-        padding: 6px;
-        min-width: 36px;
-        min-height: 36px;
-    }
-    
-    .carousel-arrow.left {
-        left: 5px;
-    }
-    
-    .carousel-arrow.right {
-        right: 5px;
-    }
-    
-    /* Welcome section for small screens */
-    .welcome-section {
-        padding: 1.5rem 0.5rem;
-    }
-    
-    .welcome-section h1 {
-        font-size: 1.8rem;
-    }
-    
-    .welcome-section p {
-        font-size: 0.95rem;
-    }
-    
-    /* Testimonial section for small screens */
-    .testimonial-section {
-        padding: 1.5rem 0.5rem;
-        gap: 1.5rem;
-    }
-    
-    .video-heading {
-        font-size: 1.2rem;
-    }
-    
-    .testimonial-quote {
-        font-size: 0.95rem;
-        padding: 0 0.5rem;
-    }
-    
-    .quote-icon {
-        font-size: 2rem;
-        top: -10px;
-        left: -5px;
-    }
-    
-    .quote-icon.closing {
-        right: -5px;
-        bottom: -5px;
-    }
+.home-video-heading {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.home-quote {
+  position: relative;
+  margin: 0;
+}
+
+.home-quote-mark {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  line-height: 0.6;
+  height: 2.25rem;
+  color: var(--gold);
+}
+
+.home-quote blockquote {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.home-quote figcaption {
+  font-weight: 700;
+  color: var(--green-800);
+  letter-spacing: 0.02em;
+}
+
+.home-quote-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1.25rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--green-800);
+  cursor: pointer;
+  border-bottom: 2px solid var(--gold);
+}
+
+.home-quote-link:hover {
+  color: var(--green-700);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .home-highlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .home-highlight {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1rem;
+    text-align: left;
+    padding: 1.25rem;
+  }
+
+  .home-highlight-icon {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+
+  .home-testimonial-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .home-cta-row .btn {
+    flex: 1 1 100%;
+  }
 }

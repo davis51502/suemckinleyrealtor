@@ -4,13 +4,15 @@ import "./AboutSue.css";
 
 const AboutSue = () => {
   return (
-    <div className="about-container">
+    <div className="page container about-container">
       {/* Top Section */}
-      <div className="about-top">
+      <div className="about-top card">
         <img src="/Sue2015-e1431579249438.jpg" alt="Sue McKinley" className="about-photo" />
         <div className="about-header">
+          <span className="eyebrow">About Sue</span>
           <h1>Meet Sue McKinley</h1>
           <h2>A Full-Time Residential Realtor working since 1984.</h2>
+          <hr className="divider" />
           <p>
             <strong>
               I provide a wealth of skill, professionalism, experience & an endless list
@@ -61,12 +63,11 @@ const AboutSue = () => {
         </div>
 
         {/* Right Video + List */}
-        <div className="about-video">
-          <div className="video-wrapper">
+        <aside className="about-video card">
+          <div className="about-video-frame">
             <iframe
               src="https://www.youtube.com/embed/dF94HheqJyA"
               title="Sue McKinley Video"
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
@@ -83,7 +84,7 @@ const AboutSue = () => {
             <li>Relocation Specialist</li>
             <li>30+ Years Real Estate Experience</li>
           </ul>
-        </div>
+        </aside>
       </div>
     </div>
   );

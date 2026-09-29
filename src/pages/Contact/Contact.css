@@ -1,31 +1,78 @@
-/* Contact.css */
-
-/* This targets the main content card for the contact page */
-.page-content .contact-details {
-  text-align: center; /* Centers all the text inside this div */
-  margin-top: 1.5rem; /* Adds some space below the main h1 title */
-  padding: 1rem 0;
-  border-top: 1px solid #eee; /* Adds a subtle separator line */
+.contact-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 860px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-/* Styles for the paragraphs containing contact info */
-.page-content .contact-details p {
-  margin: 0.5rem 0; /* Adds a little vertical space between each line */
-  font-size: 1.1rem; /* Makes the text slightly larger and easier to read */
-  line-height: 1.6; /* Improves readability */
-  color: #555; /* A soft, dark gray for the text */
+.contact-call {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: clamp(1.75rem, 5vw, 3rem);
+  background: var(--green-900);
+  color: #fff;
 }
 
-/* Specifically targets the phone number link */
-.page-content .contact-details a {
-  color: #3498db; /* A clear blue to indicate it's a clickable link */
-  text-decoration: none; /* Removes the default underline */
-  font-weight: 500;
-  transition: color 0.2s ease;
+.contact-call-label {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sand);
 }
 
-/* Adds an underline when a user hovers over the link */
-.page-content .contact-details a:hover {
-  color: #2980b9; /* Darkens the blue on hover */
-  text-decoration: underline;
+.contact-phone {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.contact-call .btn-primary {
+  background: var(--sand);
+  color: var(--green-900);
+}
+
+.contact-call .btn-primary:hover {
+  background: #fff;
+}
+
+.contact-details {
+  list-style: none;
+  margin: 0;
+  padding: clamp(1.75rem, 5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+}
+
+.contact-details li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.contact-details svg {
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+@media (max-width: 700px) {
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-call {
+    align-items: center;
+    text-align: center;
+  }
 }
