@@ -13,7 +13,16 @@ import { Navigation, Pagination, A11y } from 'swiper/modules';
 import './Testimonials.css';
 
 // Data for our testimonials (can be in a separate file)
+// Newest first. `photo` is optional: put the image in public/testimonials/ and
+// entries with a photo show it beside the quote; the rest get an initials badge.
 const testimonialsData = [
+  {
+    id: 13,
+    quote: "S.U.E. SUPPORTIVE. UNSTOPPABLE. EXCELLENT. This acronym conveys my experience with Sue Mckinley perfectly. She went above and beyond to help my wife and I purchase our first home. Her support never wavered as we pursued a dream that felt unreachable. I recommend everybody to give Sue a call. She will help make your realty dreams a reality.",
+    author: "Josh Johns",
+    photo: "/testimonials/johns-family.jpg",
+    photoAlt: "Sue McKinley with Josh Johns and his family holding a SOLD! sign in front of their new home"
+  },
   {
     id: 1,
     quote: "I had the privilege of working with Sue Mckinley on both the purchase of my plot and later the sale of the home I built on it. From start to finish, she demonstrated exceptional professionalism, dedication, and expertise.  Sue was not only instrumental in helping me secure the plot but also went above and beyond by representing me at a city council meeting, ensuring my interests were always well presented. When it came time to sell my home, she coordinated everything seamlessly — from staging and cleaners to marketing and scheduling showings.  Sue's deep market knowledge, strong communication skills, and consistent follow-ups gave me complete confidence throughout the process. She skillfully negotiated on my behalf, and her proactive approach led to an early closing, which exceeded my expectations.  I am truly grateful for her support at every step of the journey. If you are looking for a realtor who is knowledgeable, reliable, and committed to her clients’ success, I highly recommend Sue!",
@@ -108,13 +117,20 @@ const Testimonials = () => (
       >
         {testimonialsData.map((testimonial) => (
           <SwiperSlide key={testimonial.id}>
-            <figure className="testimonial-slide">
-              <span className="testimonial-quote-mark" aria-hidden="true">“</span>
-              <blockquote className="testimonial-text">{testimonial.quote}</blockquote>
-              <figcaption className="testimonial-author">
-                <span className="testimonial-avatar" aria-hidden="true">{getInitials(testimonial.author)}</span>
-                <span>{testimonial.author}</span>
-              </figcaption>
+            <figure className={`testimonial-slide ${testimonial.photo ? 'has-photo' : ''}`}>
+              {testimonial.photo && (
+                <img src={testimonial.photo} alt={testimonial.photoAlt} className="testimonial-photo" />
+              )}
+              <div className="testimonial-body">
+                <span className="testimonial-quote-mark" aria-hidden="true">“</span>
+                <blockquote className="testimonial-text">{testimonial.quote}</blockquote>
+                <figcaption className="testimonial-author">
+                  {!testimonial.photo && (
+                    <span className="testimonial-avatar" aria-hidden="true">{getInitials(testimonial.author)}</span>
+                  )}
+                  <span>{testimonial.author}</span>
+                </figcaption>
+              </div>
             </figure>
           </SwiperSlide>
         ))}

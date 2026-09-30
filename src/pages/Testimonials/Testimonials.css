@@ -19,6 +19,33 @@
   padding: 0 clamp(1rem, 7vw, 4.5rem);
 }
 
+.testimonial-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Slides with a client photo: photo beside the quote on wide screens */
+.testimonial-slide.has-photo {
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  text-align: left;
+}
+
+.testimonial-slide.has-photo .testimonial-body {
+  align-items: flex-start;
+}
+
+.testimonial-photo {
+  width: min(300px, 40%);
+  flex-shrink: 0;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 5px var(--surface), 0 0 0 7px var(--gold), var(--shadow-md);
+}
+
 .testimonial-quote-mark {
   font-family: var(--font-heading);
   font-size: 5rem;
@@ -95,6 +122,22 @@
 }
 
 /* On phones the arrows would squeeze the quote, so rely on swipe + dots */
+@media (max-width: 760px) {
+  .testimonial-slide.has-photo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonial-slide.has-photo .testimonial-body {
+    align-items: center;
+  }
+
+  .testimonial-photo {
+    width: min(260px, 80%);
+    margin-bottom: 0.5rem;
+  }
+}
+
 @media (max-width: 600px) {
   .testimonials-card .swiper-button-next,
   .testimonials-card .swiper-button-prev {
