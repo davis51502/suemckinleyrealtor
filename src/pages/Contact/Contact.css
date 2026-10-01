@@ -76,3 +76,39 @@
     text-align: center;
   }
 }
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Outline button for the dark green panel */
+.contact-call .btn-ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-call .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+.contact-details a {
+  color: var(--green-800);
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: break-word; /* the <wbr> in the JSX lets the address wrap at the @ */
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .contact-actions {
+    justify-content: center;
+  }
+}

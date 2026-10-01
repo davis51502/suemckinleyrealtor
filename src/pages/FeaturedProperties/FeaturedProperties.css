@@ -1,6 +1,8 @@
+/* Cards cap at 380px and the row is centered, so one listing or many both look intentional */
 .properties-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 380px));
+  justify-content: center;
   gap: clamp(1.25rem, 3vw, 2rem);
 }
 

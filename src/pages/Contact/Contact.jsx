@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Building2, BadgeCheck, MapPin } from 'lucide-react';
+import { Phone, Mail, Building2, BadgeCheck, MapPin } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => (
@@ -7,19 +7,28 @@ const Contact = () => (
     <div className="page-intro">
       <span className="eyebrow">Let's Talk</span>
       <h1 className="page-title">Contact Sue McKinley</h1>
-      <p className="page-lead">Thinking about buying or selling? Give Sue a call. She'd love to help you with your next move.</p>
+      <p className="page-lead">Thinking about buying or selling? Give Sue a call or send her an email. She'd love to help you with your next move.</p>
     </div>
 
     <div className="contact-card card">
       <div className="contact-call">
         <p className="contact-call-label">Call or text</p>
         <a className="contact-phone" href="tel:925-413-2866">925.413.2866</a>
-        <a className="btn btn-primary" href="tel:925-413-2866">
-          <Phone size={18} /> Call Sue
-        </a>
+        <div className="contact-actions">
+          <a className="btn btn-primary" href="tel:925-413-2866">
+            <Phone size={18} /> Call Sue
+          </a>
+          <a className="btn btn-ghost" href="mailto:suemckinleyrealtor@gmail.com">
+            <Mail size={18} /> Email Sue
+          </a>
+        </div>
       </div>
 
       <ul className="contact-details">
+        <li>
+          <Mail size={20} />
+          <a href="mailto:suemckinleyrealtor@gmail.com">suemckinleyrealtor<wbr />@gmail.com</a>
+        </li>
         <li>
           <BadgeCheck size={20} />
           <span><strong>REALTOR®</strong> Since 1984</span>

@@ -55,6 +55,7 @@ const App = () => {
           </div>
           <div className="footer-contact">
             <a href="tel:925-413-2866">925.413.2866</a>
+            <a className="footer-email" href="mailto:suemckinleyrealtor@gmail.com">suemckinleyrealtor@gmail.com</a>
             <p>Serving the Tri-Valley &amp; greater Bay Area since 1984</p>
           </div>
         </div>
