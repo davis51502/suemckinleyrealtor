@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BedDouble, Bath, Ruler, MapPin, X } from 'lucide-react';
+import SoldGallery from './SoldGallery';
 import './FeaturedProperties.css';
 
 // To add a listing, add an entry here. `status` is one of: sold, available, pending.
@@ -123,6 +124,8 @@ const FeaturedProperties = () => {
           </article>
         ))}
       </div>
+
+      <SoldGallery />
 
       {selected && (
         <div className="modal" onClick={() => setSelected(null)}>
