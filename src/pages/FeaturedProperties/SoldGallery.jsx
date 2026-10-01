@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, X, Phone, Mail, ZoomIn } from 'lucide-react';
 import soldHomes from './soldHomes';
 
-// How many photos show before "View all" (two rows on desktop, four on phones)
-const INITIAL_COUNT = 8;
+// How many photos show before "View all" (two rows on desktop, three on phones).
+// Keep it a multiple of 6 so rows stay even at both 3 and 2 across.
+const INITIAL_COUNT = 6;
 
 const SoldGallery = () => {
   // Index of the photo open in the viewer, or null when it's closed

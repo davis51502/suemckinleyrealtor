@@ -273,10 +273,10 @@
   border-top: 1px solid var(--border);
 }
 
-/* Uniform 4:3 tiles in even rows: 4 across on desktop, 2 on smaller screens */
+/* Uniform 4:3 tiles in even rows: 3 across on desktop, 2 on smaller screens */
 .sold-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.6rem, 1.5vw, 1rem);
 }
 

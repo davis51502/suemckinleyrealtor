@@ -1,13 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { BedDouble, Bath, Ruler, MapPin, CalendarDays, X } from 'lucide-react';
+import { BedDouble, Bath, Ruler, MapPin, CalendarDays, Trees, X } from 'lucide-react';
 import SoldGallery from './SoldGallery';
 import './FeaturedProperties.css';
 
 // Listings shown at the top of the page. To add one, copy a block and change the values.
 // - status: 'available' (For Sale), 'pending' (Pending) or 'sold' (Sold)
 // - image: put the photo in public/listings/ and use '/listings/your-photo.jpg'
-// - yearBuilt and features are optional
+// - yearBuilt, lotSize and features are optional
 const properties = [
+  {
+    id: 'trenery',
+    address: 'Trenery Drive',
+    city: 'Pleasanton, CA',
+    price: '$4,500,000',
+    status: 'sold',
+    image: '/listings/trenery-drive.jpg',
+    beds: 5,
+    baths: 4.5,
+    sqft: '4,776',
+    lotSize: '0.75 acre (34,840 sq ft)',
+    description: 'A brand new home: a custom single-story estate in Pleasanton.',
+    features: ['Brand New Construction', 'Custom Single-Story Estate', '0.75 Acre Lot']
+  },
   {
     id: 'mohr',
     address: '3693 Mohr Ave',
@@ -114,6 +128,9 @@ const FeaturedProperties = () => {
               <Stats property={selected} />
               {selected.yearBuilt && (
                 <p className="modal-year"><CalendarDays size={16} /> Built in {selected.yearBuilt}</p>
+              )}
+              {selected.lotSize && (
+                <p className="modal-year"><Trees size={16} /> Lot size {selected.lotSize}</p>
               )}
               <p className="modal-description">{selected.description}</p>
               {selected.features?.length > 0 && (

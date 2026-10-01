@@ -36,6 +36,16 @@ const soldHomes = [
   { file: 'sold-30.jpg', width: 640, height: 337, alt: 'White two-story home with a two-car garage' },
   { file: 'sold-31.jpg', width: 599, height: 297, alt: 'Yellow two-story home with a three-car garage' },
   { file: 'sold-32.jpg', width: 640, height: 480, alt: 'Single-story ranch-style home' },
+  { file: 'sold-33.jpg', width: 640, height: 427, alt: 'Grand cream two-story home with a balcony and twin garages' },
+  { file: 'sold-34.jpg', width: 640, height: 433, alt: 'Two-story home behind a blossoming tree and a lush lawn' },
+  { file: 'sold-35.jpg', width: 640, height: 480, alt: 'Brown two-story home with a covered porch and two-car garage' },
+  { file: 'sold-36.jpg', width: 640, height: 480, alt: 'Single-story home with a blossoming tree and a real estate sign' },
+  { file: 'sold-37.jpg', width: 640, height: 314, alt: 'Single-story home with a long brick-trimmed driveway' },
+  { file: 'sold-38.jpg', width: 640, height: 480, alt: 'Two-story home with a green lawn and front walkway' },
+  { file: 'sold-39.jpg', width: 594, height: 640, alt: 'Single-story home with stone accents and a stamped driveway' },
+  { file: 'sold-40.jpg', width: 640, height: 459, alt: 'Gray two-story home with flowers along the front walk' },
+  { file: 'sold-41.jpg', width: 640, height: 480, alt: 'Single-story home with brick columns and red shutters' },
+  { file: 'sold-42.jpg', width: 640, height: 405, alt: 'Single-story home behind a low juniper hedge' },
 ];
 
 export default soldHomes;
