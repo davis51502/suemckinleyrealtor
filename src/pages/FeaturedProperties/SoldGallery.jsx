@@ -1,11 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, X, Phone, Mail } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { ChevronLeft, ChevronRight, X, Phone, Mail, ZoomIn } from 'lucide-react';
 import soldHomes from './soldHomes';
+
+// How many photos show before "View all" (two rows on desktop, four on phones)
+const INITIAL_COUNT = 8;
 
 const SoldGallery = () => {
   // Index of the photo open in the viewer, or null when it's closed
   const [openIndex, setOpenIndex] = useState(null);
+  const [expanded, setExpanded] = useState(false);
+  const sectionRef = useRef(null);
   const count = soldHomes.length;
+  const visible = expanded ? soldHomes : soldHomes.slice(0, INITIAL_COUNT);
+
+  const toggleExpanded = () => {
+    // Collapsing removes rows above the button, so bring the gallery back into view
+    if (expanded) sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setExpanded((e) => !e);
+  };
 
   const show = (step) => setOpenIndex((i) => (i + step + count) % count);
 
@@ -28,7 +40,7 @@ const SoldGallery = () => {
   const current = openIndex !== null ? soldHomes[openIndex] : null;
 
   return (
-    <section className="sold-section" aria-labelledby="sold-title">
+    <section className="sold-section" aria-labelledby="sold-title" ref={sectionRef}>
       <div className="page-intro">
         <span className="eyebrow">Track Record</span>
         <h2 id="sold-title" className="page-title">Homes Sue Has Sold</h2>
@@ -37,9 +49,14 @@ const SoldGallery = () => {
         </p>
       </div>
 
-      <div className="sold-grid">
-        {soldHomes.map((home, i) => (
-          <button key={home.file} type="button" className="sold-tile" onClick={() => setOpenIndex(i)}>
+      <div className="sold-grid" id="sold-grid">
+        {visible.map((home, i) => (
+          <button
+            key={home.file}
+            type="button"
+            className={`sold-tile ${i >= INITIAL_COUNT ? 'is-new' : ''}`}
+            onClick={() => setOpenIndex(i)}
+          >
             <img
               src={`/sold-homes/thumb/${home.file}`}
               alt={home.alt}
@@ -48,8 +65,21 @@ const SoldGallery = () => {
               loading="lazy"
               decoding="async"
             />
+            <span className="sold-tile-overlay" aria-hidden="true"><ZoomIn size={22} /></span>
           </button>
         ))}
+      </div>
+
+      <div className="sold-more">
+        <button
+          type="button"
+          className="btn btn-outline"
+          onClick={toggleExpanded}
+          aria-expanded={expanded}
+          aria-controls="sold-grid"
+        >
+          {expanded ? 'Show fewer' : `View all ${count} homes`}
+        </button>
       </div>
 
       {/* Closing call-to-action with Sue's SOLD! card */}

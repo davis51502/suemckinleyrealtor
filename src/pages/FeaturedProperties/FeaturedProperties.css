@@ -213,45 +213,83 @@
 
 /* === HOMES SUE HAS SOLD === */
 .sold-section {
+  scroll-margin-top: 72px; /* clears the sticky nav when "Show fewer" scrolls back here */
   margin-top: var(--section-y);
   padding-top: var(--section-y);
   border-top: 1px solid var(--border);
 }
 
-/* CSS columns give a masonry layout, so every photo shows uncropped */
+/* Uniform 4:3 tiles in even rows: 4 across on desktop, 2 on smaller screens */
 .sold-grid {
-  columns: 4 220px;
-  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.6rem, 1.5vw, 1rem);
 }
 
 .sold-tile {
+  position: relative;
   display: block;
-  width: 100%;
-  margin: 0 0 1rem;
   padding: 0;
   border: 0;
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-sm);
   overflow: hidden;
   background: var(--sand-light);
   box-shadow: var(--shadow-sm);
   cursor: zoom-in;
-  break-inside: avoid;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+/* Fill the frame; 30% from the top keeps roofs and faces in tall photos */
 .sold-tile img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
   transition: transform 0.5s ease;
 }
 
-.sold-tile:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lg);
+.sold-tile-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(to top, rgba(1, 54, 26, 0.55), rgba(1, 54, 26, 0.15));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.sold-tile:hover img {
-  transform: scale(1.04);
+.sold-tile:hover img,
+.sold-tile:focus-visible img {
+  transform: scale(1.05);
+}
+
+.sold-tile:hover .sold-tile-overlay,
+.sold-tile:focus-visible .sold-tile-overlay {
+  opacity: 1;
+}
+
+/* Photos revealed by "View all" fade in */
+.sold-tile.is-new {
+  animation: sold-fade-in 0.4s ease both;
+}
+
+@keyframes sold-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.sold-more {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+}
+
+@media (max-width: 900px) {
+  .sold-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Closing call-to-action under the gallery */
@@ -378,15 +416,6 @@
 
 /* On phones, move the arrows below the photo so they don't cover it */
 @media (max-width: 600px) {
-  .sold-grid {
-    columns: 2;
-    column-gap: 0.6rem;
-  }
-
-  .sold-tile {
-    margin-bottom: 0.6rem;
-  }
-
   .viewer-arrow {
     top: auto;
     bottom: 1.25rem;
