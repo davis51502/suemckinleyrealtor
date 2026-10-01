@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Phone, Mail } from 'lucide-react';
 import soldHomes from './soldHomes';
 
 const SoldGallery = () => {
@@ -50,6 +50,34 @@ const SoldGallery = () => {
             />
           </button>
         ))}
+      </div>
+
+      {/* Closing call-to-action with Sue's SOLD! card */}
+      <div className="sold-cta card">
+        <img
+          src="/brand/sue-sold-card.jpg"
+          alt="Sue McKinley's SOLD! card: REALTOR®, 925.413.2866, suemckinleyrealtor@gmail.com, CA DRE Lic# 00871712"
+          className="sold-cta-image"
+          width="720"
+          height="747"
+          loading="lazy"
+        />
+        <div className="sold-cta-body">
+          <span className="eyebrow">Your Home Could Be Next</span>
+          <h3>Thinking about selling?</h3>
+          <p>
+            Sue has been helping families buy and sell homes across the Tri-Valley and greater Bay Area since 1984.
+            Give her a call or send an email to talk about your home.
+          </p>
+          <div className="sold-cta-actions">
+            <a className="btn btn-primary" href="tel:925-413-2866">
+              <Phone size={18} /> Call Sue
+            </a>
+            <a className="btn btn-outline" href="mailto:suemckinleyrealtor@gmail.com">
+              <Mail size={18} /> Email Sue
+            </a>
+          </div>
+        </div>
       </div>
 
       {current && (
